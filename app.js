@@ -8,14 +8,15 @@ const router = Router();
 const { launch } = require("./function.js");
 const multer = require("multer");
 const Joi = require("joi")
+// var upload = multer({ dest: 'uploads/' })
 
 const upload = multer({
   storage: multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, "/tmp");
+      cb(null, "./uploads");
     },
     filename: function (req, file, cb) {
-      cb(null, file.fieldname + "-" + Date.now());
+      cb(null, Date.now() + "-" + file.originalname);
     },
   }),
 });
@@ -28,6 +29,7 @@ app.use(bodyParser.json())
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/uploads", express.static(path.join(__dirname, '/uploads'))); //public file img sieu ba
 
 app.get("/", function (req, res) {
   res.render("Dashboard")
@@ -124,6 +126,11 @@ app.get("/launch/edit/:id", async function (req, res) {
   const { id } = req.params
   launchOne = await launch.get({ _id: id }, '')
   res.render("Launch_Edit", launchOne)
+})
+
+app.post("/launch/:id", upload.single('avatar'), async function (req, res) {
+  const { id } = req.params
+  console.log("text", req.file);
 })
 
 // app.delete("/api/launch/delete/:id", async (req, res) => {
