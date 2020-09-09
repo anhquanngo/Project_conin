@@ -643,16 +643,17 @@
                                             <h6 class="card-subtitle">Form</h6>
                                         </div>
                                         <hr>
-                                        <% launchOne.forEach((launch, index)=>{ %>
-                                        <form class="form-horizontal">
+                                        <form class="form-horizontal" enctype="multipart/form-data" method="POST"
+                                            action="/api/launch/update/<%= launch._id %> ">
                                             <div class="card-body">
                                                 <h4 class="card-title">Infomation</h4>
                                                 <div class="form-group row">
                                                     <label for="symbol"
                                                         class="col-sm-3 text-right control-label col-form-label">Symbol</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="symbol"
-                                                            value="<%= launch.symbol %> " placeholder="Symbol Here">
+                                                        <input type="text" name="symbol" class="form-control"
+                                                            id="symbol" value="<%= launch.symbol %> "
+                                                            placeholder="Symbol Here">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -665,14 +666,15 @@
                                                             </div>
                                                             <div class="custom-file">
                                                                 <input type="file" class="custom-file-input" id="logo"
-                                                                    id="inputGroupFile01" onchange="readURL(this);">
+                                                                    name="logo" id="inputGroupFile01"
+                                                                    onchange="readURL(this);">
                                                                 <label class="custom-file-label"
                                                                     for="inputGroupFile01">Choose file</label>
 
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <img src="<%= launch.logo %>  " id="blah"
+                                                    <img src="../uploads/<%= launch.logo%>" id="blah"
                                                         style="width: 150px; margin: 0 auto;">
                                                     <script>
                                                         function readURL(input) {
@@ -693,7 +695,7 @@
                                                     <label for="name"
                                                         class="col-sm-3 text-right control-label col-form-label">Name</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="name"
+                                                        <input type="text" class="form-control" id="name" name="name"
                                                             value="<%= launch.name %> " placeholder="Name Here">
                                                     </div>
                                                 </div>
@@ -702,7 +704,8 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Slogan</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="slogan"
-                                                            value="<%= launch.slogan %> " placeholder="Slogan Here">
+                                                            name="slogan" value="<%= launch.slogan %> "
+                                                            placeholder="Slogan Here">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -711,7 +714,7 @@
                                                         Supply</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="totalsupply"
-                                                            value="<%= launch.total_supply %> "
+                                                            name="total_supply" value="<%= launch.total_supply %> "
                                                             placeholder="Total Supply">
                                                     </div>
                                                 </div>
@@ -720,7 +723,7 @@
                                                         Status
                                                     </label>
                                                     <div class="col-sm-9">
-                                                        <select class="form-control" id="status">
+                                                        <select class="form-control" id="status" name="status">
                                                             <option>Buy</option>
                                                             <option>Sell</option>
                                                         </select>
@@ -745,7 +748,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Package</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="package"
-                                                            value="<%= launch.session.package %> "
+                                                            name="package" value="<%= launch.session.package %> "
                                                             placeholder="Package">
                                                     </div>
                                                 </div>
@@ -755,7 +758,7 @@
                                                         Supply</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="supply"
-                                                            value="<%= launch.session.package  %> "
+                                                            name="supply" value="<%= launch.session.package  %> "
                                                             placeholder="Supply">
                                                     </div>
                                                 </div>
@@ -764,7 +767,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">
                                                         Max</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="max"
+                                                        <input type="text" class="form-control" id="max" name="max"
                                                             value="<%= launch.session.max  %> "
                                                             placeholder="Max Supply">
                                                     </div>
@@ -774,7 +777,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">
                                                         Min</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="min"
+                                                        <input type="text" class="form-control" id="min" name="min"
                                                             value="<%= launch.session.min  %> "
                                                             placeholder="Min Supply">
                                                     </div>
@@ -784,7 +787,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">
                                                         Sell</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="sell"
+                                                        <input type="text" class="form-control" id="sell" name="sell"
                                                             value="<%= launch.session.sell  %> " placeholder="Sell">
                                                     </div>
                                                 </div>
@@ -793,7 +796,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">
                                                         Price</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="price"
+                                                        <input type="text" class="form-control" id="price" name="price"
                                                             value="<%= launch.session.price  %> " placeholder="Price">
                                                     </div>
                                                 </div>
@@ -802,7 +805,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">
                                                         Bonus</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="bonus"
+                                                        <input type="text" class="form-control" id="bonus" name="bonus"
                                                             value="<%= launch.session.bonus  %> " placeholder="Bonus">
                                                     </div>
                                                 </div>
@@ -814,7 +817,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Website</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="website"
-                                                            value="<%= launch.link.website  %> "
+                                                            name="website" value="<%= launch.link.website  %> "
                                                             placeholder="Website Here">
                                                     </div>
                                                 </div>
@@ -823,7 +826,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Telegram</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="telegram"
-                                                            value="<%= launch.link.telegram  %> "
+                                                            name="telegram" value="<%= launch.link.telegram  %> "
                                                             placeholder="Telegram Here">
                                                     </div>
                                                 </div>
@@ -832,7 +835,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Twitter</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="twitter"
-                                                            value="<%= launch.link.twitter  %> "
+                                                            name="twitter" value="<%= launch.link.twitter  %> "
                                                             placeholder="Twitter Here">
                                                     </div>
                                                 </div>
@@ -840,7 +843,8 @@
                                                     <label for="intro"
                                                         class="col-sm-3 text-right control-label col-form-label">Intro</label>
                                                     <div class="col-sm-9">
-                                                        <textarea class="form-control" id="intro" rows="8" style="">
+                                                        <textarea class="form-control" id="intro" name="intro" rows="8"
+                                                            style="">
                                                             <%= launch.intro.join("\n")%>
                                                         </textarea>
                                                     </div>
@@ -849,7 +853,7 @@
                                                     <label for="note"
                                                         class="col-sm-3 text-right control-label col-form-label">Note</label>
                                                     <div class="col-sm-9">
-                                                        <textarea class="form-control" id="note" rows="5">
+                                                        <textarea class="form-control" name="note" id="note" rows="5">
                                                             <%= launch.note.join("\n")%>
                                                         </textarea>
                                                     </div>
@@ -858,13 +862,14 @@
                                             <hr>
                                             <div class="card-body">
                                                 <div class="form-group mb-0 text-right">
-                                                    <button type="summit" class="btn btn-info waves-effect waves-light"
-                                                        onclick="updateLaunch()">Save</button>
-                                                    <script>
+                                                    <button type="summit"
+                                                        class="btn btn-info waves-effect waves-light">Save</button>
+                                                    <!-- <script>
                                                         function updateLaunch() {
                                                             $.ajax({
-                                                                url: '../../api/launch/update/<%=launch._id  %>',
+                                                                url: '../api/launch/update/<%=launch._id  %>',
                                                                 type: 'PUT',
+                                                                contentType: "multipart/form-data",
                                                                 data: {
                                                                     symbol: $('#symbol').val,
                                                                     logo: $('#logo').val,
@@ -893,22 +898,21 @@
                                                                 },
                                                                 success: function (
                                                                     data) {
-                                                                    location.reload();
+                                                                    // location.reload();
                                                                     alert('ok')
                                                                 },
                                                                 error: function (
                                                                     e) {
-                                                                    alert('loi')
+                                                                    alert(e)
                                                                 }
                                                             });
                                                         }
-                                                    </script>
+                                                    </script> -->
                                                     <button type="button"
                                                         class="btn btn-dark waves-effect waves-light">Cancel</button>
                                                 </div>
                                             </div>
                                         </form>
-                                        <% }) %>
                                     </div>
                                 </div>
                             </div>
@@ -1285,7 +1289,6 @@
     <script src="../../dist/js/pages/notes/notes.js"></script>
     <script>
         var str = $('#intro').val()
-        console.log("str", str)
         $('#intro').html($.trim(str))
     </script>
 </body>

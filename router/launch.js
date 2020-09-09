@@ -2,7 +2,6 @@ var express = require('express')
 var router = express.Router()
 var multer = require('multer')
 const { launch } = require("../function");
-const { all } = require('./api');
 
 const upload = multer({
     storage: multer.diskStorage({
@@ -24,18 +23,20 @@ router.get("/launch", async function (req, res) {
 router.get("/launch/edit/:id", async function (req, res) {
     const { id } = req.params
     launchOne = await launch.get({ _id: id }, '')
-    res.render("Launch_Edit", launchOne)
+    console.log('launchOne', launchOne);
+    res.render("Launch_Edit", { launch: launchOne[0] })
 })
 //Create
 router.get("/launch/create", async function (req, res) {
     res.render("Launch_Create")
 })
 
-router.post("/launch/update/:id", upload.single('image'), async function (req, res) {
+router.post("/launch/update/:id", upload.single('logo'), async function (req, res) {
     const { id } = req.params
     const { data } = req.body
 
     console.log("text", req.file);
+    res.send('ok')
 })
 
 module.exports = router
