@@ -53,7 +53,7 @@
         }
 
         var $chart = chart.container;
-        var $toolTip = $chart.querySelector('.chartist-tooltip');
+        // var $toolTip = $chart.querySelector('.chartist-tooltip');
         if (!$toolTip) {
           $toolTip = document.createElement('div');
           $toolTip.className = (!options.class) ? 'chartist-tooltip' : 'chartist-tooltip ' + options.class;
@@ -126,7 +126,7 @@
             }
           }
 
-          if(tooltipText) {
+          if (tooltipText) {
             $toolTip.innerHTML = tooltipText;
             setPosition(event);
             show($toolTip);
@@ -155,8 +155,8 @@
 
           if (!options.appendToBody) {
             var box = $chart.getBoundingClientRect();
-            var left = event.pageX - box.left - window.pageXOffset ;
-            var top = event.pageY - box.top - window.pageYOffset ;
+            var left = event.pageX - box.left - window.pageXOffset;
+            var top = event.pageY - box.top - window.pageYOffset;
 
             if (true === options.anchorToPoint && event.target.x2 && event.target.y2) {
               anchorX = parseInt(event.target.x2.baseVal.value);
@@ -174,7 +174,7 @@
     };
 
     function show(element) {
-      if(!hasClass(element, 'tooltip-show')) {
+      if (!hasClass(element, 'tooltip-show')) {
         element.className = element.className + ' tooltip-show';
       }
     }
@@ -199,7 +199,7 @@
       return element.innerText || element.textContent;
     }
 
-  } (window, document, Chartist));
+  }(window, document, Chartist));
 
   return Chartist.plugins.tooltips;
 

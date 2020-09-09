@@ -643,7 +643,7 @@
                                             <h6 class="card-subtitle">Form</h6>
                                         </div>
                                         <hr>
-                                        <% launchOne.forEach((launch, index)=>{ %>
+
                                         <form class="form-horizontal">
                                             <div class="card-body">
                                                 <h4 class="card-title">Infomation</h4>
@@ -651,8 +651,8 @@
                                                     <label for="symbol"
                                                         class="col-sm-3 text-right control-label col-form-label">Symbol</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="symbol"
-                                                            value="<%= launch.symbol %> " placeholder="Symbol Here">
+                                                        <input type="text" class="form-control" id="symbol" value=""
+                                                            placeholder="Symbol Here">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -672,8 +672,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <img src="<%= launch.logo %>  " id="blah"
-                                                        style="width: 150px; margin: 0 auto;">
+                                                    <img src="" id="blah" style="width: 150px; margin: 0 auto;">
                                                     <script>
                                                         function readURL(input) {
                                                             if (input.files && input.files[0]) {
@@ -693,16 +692,16 @@
                                                     <label for="name"
                                                         class="col-sm-3 text-right control-label col-form-label">Name</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="name"
-                                                            value="<%= launch.name %> " placeholder="Name Here">
+                                                        <input type="text" class="form-control" id="name" value=""
+                                                            placeholder="Name Here">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="slogan"
                                                         class="col-sm-3 text-right control-label col-form-label">Slogan</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="slogan"
-                                                            value="<%= launch.slogan %> " placeholder="Slogan Here">
+                                                        <input type="text" class="form-control" id="slogan" value=""
+                                                            placeholder="Slogan Here">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -711,8 +710,7 @@
                                                         Supply</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="totalsupply"
-                                                            value="<%= launch.total_supply %> "
-                                                            placeholder="Total Supply">
+                                                            value="" placeholder="Total Supply">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -744,8 +742,7 @@
                                                     <label for="package"
                                                         class="col-sm-3 text-right control-label col-form-label">Package</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="package"
-                                                            value="<%= launch.session.package %> "
+                                                        <input type="text" class="form-control" id="package" value=""
                                                             placeholder="Package">
                                                     </div>
                                                 </div>
@@ -754,8 +751,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">
                                                         Supply</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="supply"
-                                                            value="<%= launch.session.package  %> "
+                                                        <input type="text" class="form-control" id="supply" value=""
                                                             placeholder="Supply">
                                                     </div>
                                                 </div>
@@ -764,8 +760,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">
                                                         Max</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="max"
-                                                            value="<%= launch.session.max  %> "
+                                                        <input type="text" class="form-control" id="max" value=""
                                                             placeholder="Max Supply">
                                                     </div>
                                                 </div>
@@ -774,8 +769,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">
                                                         Min</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="min"
-                                                            value="<%= launch.session.min  %> "
+                                                        <input type="text" class="form-control" id="min" value=""
                                                             placeholder="Min Supply">
                                                     </div>
                                                 </div>
@@ -784,8 +778,8 @@
                                                         class="col-sm-3 text-right control-label col-form-label">
                                                         Sell</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="sell"
-                                                            value="<%= launch.session.sell  %> " placeholder="Sell">
+                                                        <input type="text" class="form-control" id="sell" value=""
+                                                            placeholder="Sell">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -793,8 +787,8 @@
                                                         class="col-sm-3 text-right control-label col-form-label">
                                                         Price</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="price"
-                                                            value="<%= launch.session.price  %> " placeholder="Price">
+                                                        <input type="text" class="form-control" id="price" value=""
+                                                            placeholder="Price">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -802,8 +796,8 @@
                                                         class="col-sm-3 text-right control-label col-form-label">
                                                         Bonus</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="bonus"
-                                                            value="<%= launch.session.bonus  %> " placeholder="Bonus">
+                                                        <input type="text" class="form-control" id="bonus" value=""
+                                                            placeholder="Bonus">
                                                     </div>
                                                 </div>
                                             </div>
@@ -813,8 +807,7 @@
                                                     <label for="website"
                                                         class="col-sm-3 text-right control-label col-form-label">Website</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="website"
-                                                            value="<%= launch.link.website  %> "
+                                                        <input type="text" class="form-control" id="website" value=""
                                                             placeholder="Website Here">
                                                     </div>
                                                 </div>
@@ -822,8 +815,7 @@
                                                     <label for="telegram"
                                                         class="col-sm-3 text-right control-label col-form-label">Telegram</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="telegram"
-                                                            value="<%= launch.link.telegram  %> "
+                                                        <input type="text" class="form-control" id="telegram" value=""
                                                             placeholder="Telegram Here">
                                                     </div>
                                                 </div>
@@ -831,8 +823,7 @@
                                                     <label for="twitter"
                                                         class="col-sm-3 text-right control-label col-form-label">Twitter</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="twitter"
-                                                            value="<%= launch.link.twitter  %> "
+                                                        <input type="text" class="form-control" id="twitter" value=""
                                                             placeholder="Twitter Here">
                                                     </div>
                                                 </div>
@@ -840,8 +831,7 @@
                                                     <label for="intro"
                                                         class="col-sm-3 text-right control-label col-form-label">Intro</label>
                                                     <div class="col-sm-9">
-                                                        <textarea class="form-control" id="intro" rows="8" style="">
-                                                            <%= launch.intro.join("\n")%>
+                                                        <textarea class="form-control">
                                                         </textarea>
                                                     </div>
                                                 </div>
@@ -850,7 +840,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Note</label>
                                                     <div class="col-sm-9">
                                                         <textarea class="form-control" id="note" rows="5">
-                                                            <%= launch.note.join("\n")%>
+
                                                         </textarea>
                                                     </div>
                                                 </div>
@@ -863,7 +853,7 @@
                                                     <script>
                                                         function updateLaunch() {
                                                             $.ajax({
-                                                                url: '../../api/launch/update/<%=launch._id  %>',
+                                                                url: '../../api/launch/update/',
                                                                 type: 'PUT',
                                                                 data: {
                                                                     symbol: $('#symbol').val,
@@ -908,7 +898,6 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <% }) %>
                                     </div>
                                 </div>
                             </div>
@@ -1284,9 +1273,9 @@
     <!-- <script src="../../dist/js/pages/dashboards/dashboard2.js"></script> -->
     <script src="../../dist/js/pages/notes/notes.js"></script>
     <script>
-        var str = $('#intro').val()
-        console.log("str", str)
-        $('#intro').html($.trim(str))
+        $('textarea').val('');
+        var ddd = '                                                            ';
+        alert(ddd.length);
     </script>
 </body>
 

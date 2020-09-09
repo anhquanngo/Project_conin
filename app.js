@@ -4,22 +4,10 @@ var path = require('path');
 const app = express();
 const port = 3000;
 var bodyParser = require('body-parser')
-const router = Router();
-const { launch } = require("./function.js");
-const multer = require("multer");
 const Joi = require("joi")
-// var upload = multer({ dest: 'uploads/' })
 
-const upload = multer({
-  storage: multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, "./uploads");
-    },
-    filename: function (req, file, cb) {
-      cb(null, Date.now() + "-" + file.originalname);
-    },
-  }),
-});
+const apiRouter = require("./router/api")
+const launchRouter = require("./router/launch");
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -29,17 +17,13 @@ app.use(bodyParser.json())
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
-app.use("/uploads", express.static(path.join(__dirname, '/uploads'))); //public file img sieu ba
+app.use("/uploads", express.static(path.join(__dirname, '/uploads')));
+//public file img
+app.use("/api", apiRouter)
+app.use("/", launchRouter)
 
 app.get("/", function (req, res) {
   res.render("Dashboard")
-})
-
-//show
-app.get("/launch", async function (req, res) {
-  const allLaunch = await launch.get({}, "")
-  // console.log("allLaunch", allLaunch)
-  res.render("Launch", { allLaunch })
 })
 
 //update
@@ -121,69 +105,6 @@ app.get("/launch", async function (req, res) {
 //     return res.redirect("/launch");
 //   })
 
-
-app.get("/launch/edit/:id", async function (req, res) {
-  const { id } = req.params
-  launchOne = await launch.get({ _id: id }, '')
-  res.render("Launch_Edit", launchOne)
-})
-
-app.post("/launch/:id", upload.single('avatar'), async function (req, res) {
-  const { id } = req.params
-  console.log("text", req.file);
-})
-
-// app.delete("/api/launch/delete/:id", async (req, res) => {
-//   const { id } = req.params
-//   await launch.del({ _id: id })
-//   res.json({
-//     status: "success"
-//   })
-// })
-
-
-//API
-app.get("/api/launch", async (req, res) => {
-  res.json(await launch.get({}, ""))
-});
-//get 1 launch
-app.get("/api/launch/:id", async (req, res) => {
-  const { id } = req.params
-  launchOne = await launch.get({ _id: id }, '')
-  res.json(launchOne)
-});
-
-//post 1 launch
-app.post("/api/launch/add", async (req, res) => {
-  const newLaunch = req.body
-  console.log("newLaunch", newLaunch)
-  await launch.create(newLaunch)
-  res.json({
-    status: "success",
-  })
-});
-
-//update 1 launch
-app.put("/api/launch/update/:id", async (req, res) => {
-  const { id } = req.params
-  const updateLaunch = req.body
-  const currentLaunch = await launch.findOne({ _id: id }, '')
-  const returnedTarget = Object.assign(currentLaunch, updateLaunch);
-
-  await launch.set({ _id: id }, returnedTarget)
-  res.json({
-    status: "success",
-  })
-})
-
-//delete 1 launch
-app.delete("/api/launch/delete/:id", async (req, res) => {
-  const { id } = req.params
-  await launch.del({ _id: id })
-  res.json({
-    status: "success"
-  })
-})
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);

@@ -34,8 +34,6 @@ var launch = new Launch();
 
 // var faker = require('faker');
 
-
-
 // const createDL = () => {
 //     var symbolRandom = faker.finance.currencyCode()
 //     var logoRandom = faker.image.imageUrl()
@@ -48,8 +46,8 @@ var launch = new Launch();
 //     var supplyS = Math.floor(Math.random() * 101)
 //     var maxS = Math.floor(Math.random() * 101)
 //     var minS = Math.floor(Math.random() * 101)
-//     var startS = faker.date.future()
-//     var endS = faker.date.past()
+//     var startS = faker.date.past()
+//     var endS = faker.date.future()
 //     var sellS = faker.commerce.price()
 //     var priceS = faker.commerce.price()
 //     var websiteR = faker.internet.url()
