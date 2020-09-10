@@ -62,6 +62,8 @@ router.post("/launch/add", upload.single('logo'), async (req, res) => {
             min: newLaunch.min,
             sell: newLaunch.sell,
             price: newLaunch.price,
+            start: new Date(newLaunch.start),
+            end: new Date(newLaunch.end),
             bonus: newLaunch.bonus,
         },
         link: {
@@ -128,6 +130,8 @@ router.post("/launch/update/:id", upload.single('logo'), async (req, res) => {
             min: updateLaunch.min,
             sell: updateLaunch.sell,
             price: updateLaunch.price,
+            start: new Date(updateLaunch.start),
+            end: new Date(updateLaunch.end),
             bonus: updateLaunch.bonus,
         },
         link: {

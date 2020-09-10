@@ -13,6 +13,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>Monster admin Template - The Ultimate Multipurpose admin template</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monsteradmin/" />
+    <!-- This Page CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="../assets/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css">
     <!-- Custom CSS -->
     <link href="../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -23,6 +26,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 </head>
 
 <body>
@@ -804,85 +808,110 @@
                                                             name="bonus" placeholder="Bonus">
                                                     </div>
                                                 </div>
+                                                <!-- Date And Time -->
+                                                <div class="form-group row">
+                                                    <label for="DateStart"
+                                                        class="col-sm-3 text-right control-label col-form-label">
+                                                        Date Start</label>
+                                                    <div class="col-sm-9">
+                                                        <div class='input-group mb-3'>
+                                                            <input type="text" class="form-control" name="start"
+                                                                placeholder="set start date" id="min-date">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="DateEnd"
+                                                        class="col-sm-3 text-right control-label col-form-label">
+                                                        Date End</label>
+                                                    <div class="col-sm-9">
+                                                        <div class='input-group mb-3'>
+                                                            <input type="text" class="form-control" name="end"
+                                                                placeholder="set end date" id="max-date">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="card-body">
-                                                <h4 class="card-title">Link</h4>
-                                                <div class="form-group row">
-                                                    <label for="website"
-                                                        class="col-sm-3 text-right control-label col-form-label">Website</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="website" value=""
-                                                            name="website" placeholder="Website Here">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="telegram"
-                                                        class="col-sm-3 text-right control-label col-form-label">Telegram</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="telegram" value=""
-                                                            name="telegram" placeholder="Telegram Here">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="twitter"
-                                                        class="col-sm-3 text-right control-label col-form-label">Twitter</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="twitter" value=""
-                                                            name="twitter" placeholder="Twitter Here">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="intro"
-                                                        class="col-sm-3 text-right control-label col-form-label">Intro</label>
-                                                    <div class="col-sm-9">
-                                                        <textarea class="form-control" rows="5" name="intro">
+                                            <!--  -->
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Link</h4>
+                                        <div class="form-group row">
+                                            <label for="website"
+                                                class="col-sm-3 text-right control-label col-form-label">Website</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="website" value=""
+                                                    name="website" placeholder="Website Here">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="telegram"
+                                                class="col-sm-3 text-right control-label col-form-label">Telegram</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="telegram" value=""
+                                                    name="telegram" placeholder="Telegram Here">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="twitter"
+                                                class="col-sm-3 text-right control-label col-form-label">Twitter</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="twitter" value=""
+                                                    name="twitter" placeholder="Twitter Here">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="intro"
+                                                class="col-sm-3 text-right control-label col-form-label">Intro</label>
+                                            <div class="col-sm-9">
+                                                <textarea class="form-control" rows="5" name="intro">
                                                         </textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="note"
-                                                        class="col-sm-3 text-right control-label col-form-label">Note</label>
-                                                    <div class="col-sm-9">
-                                                        <textarea class="form-control" id="note" rows="5" name="note">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="note"
+                                                class="col-sm-3 text-right control-label col-form-label">Note</label>
+                                            <div class="col-sm-9">
+                                                <textarea class="form-control" id="note" rows="5" name="note">
 
                                                         </textarea>
-                                                    </div>
-                                                </div>
                                             </div>
-                                            <hr>
-                                            <div class="card-body">
-                                                <div class="form-group mb-0 text-right">
-                                                    <button type="summit"
-                                                        class="btn btn-info waves-effect waves-light">Save</button>
-                                                    <button type="button"
-                                                        class="btn btn-dark waves-effect waves-light">Cancel</button>
-                                                </div>
-                                            </div>
-                                        </form>
+                                        </div>
                                     </div>
+                                    <hr>
+                                    <div class="card-body">
+                                        <div class="form-group mb-0 text-right">
+                                            <button type="summit"
+                                                class="btn btn-info waves-effect waves-light">Save</button>
+                                            <button type="button"
+                                                class="btn btn-dark waves-effect waves-light">Cancel</button>
+                                        </div>
+                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Column -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer">
-                © 2020 Monster Admin by wrappixel.com
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
+            <!-- Column -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
+        <!-- End Container fluid  -->
         <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer">
+            © 2020 Monster Admin by wrappixel.com
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
@@ -1230,12 +1259,25 @@
     <script src="../../dist/js/custom.min.js"></script>
     <!--This page JavaScript -->
     <script src="../assets/libs/chartist/dist/chartist.min.js"></script>
-    <!-- <script src="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script> -->
-    <!-- <script src="../../dist/js/pages/dashboards/dashboard2.js"></script> -->
+    <!-- note -->
     <script src="../../dist/js/pages/notes/notes.js"></script>
+    <!-- This Page JS -->
+    <script src="../assets/libs/moment/moment.js"></script>
+    <script src="../assets/libs/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker-custom.js">
+    </script>
     <script>
         $('textarea').val('');
+        //date
+        $('#min-date').bootstrapMaterialDatePicker({
+            format: 'DD/MM/YYYY HH:mm:ss',
+            minDate: new Date()
+        });
+        $('#max-date').bootstrapMaterialDatePicker({
+            format: 'DD/MM/YYYY HH:mm:ss',
+            minDate: new Date()
+        });
     </script>
+
 </body>
 
 </html>

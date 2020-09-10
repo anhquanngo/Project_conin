@@ -17,6 +17,9 @@
     <link href="../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../../dist/css/style.min.css" rel="stylesheet">
+    <!-- This Page CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="../assets/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -644,7 +647,7 @@
                                         </div>
                                         <hr>
                                         <form class="form-horizontal" enctype="multipart/form-data" method="POST"
-                                            action="/api/launch/update/<%= launch._id %> ">
+                                            action="/api/launch/update/<%= launch._id %>">
                                             <div class="card-body">
                                                 <h4 class="card-title">Infomation</h4>
                                                 <div class="form-group row">
@@ -696,7 +699,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Name</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="name" name="name"
-                                                            value="<%= launch.name %> " placeholder="Name Here">
+                                                            value="<%= launch.name%>" placeholder="Name Here">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -704,7 +707,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Slogan</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="slogan"
-                                                            name="slogan" value="<%= launch.slogan %> "
+                                                            name="slogan" value="<%= launch.slogan%>"
                                                             placeholder="Slogan Here">
                                                     </div>
                                                 </div>
@@ -714,7 +717,7 @@
                                                         Supply</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="totalsupply"
-                                                            name="total_supply" value="<%= launch.total_supply %>"
+                                                            name="total_supply" value="<%= launch.total_supply%>"
                                                             placeholder="Total Supply">
                                                     </div>
                                                 </div>
@@ -762,7 +765,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Package</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="package"
-                                                            name="package" value="<%= launch.session.package %> "
+                                                            name="package" value="<%= launch.session.package %>"
                                                             placeholder="Package">
                                                     </div>
                                                 </div>
@@ -772,7 +775,7 @@
                                                         Supply</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="supply"
-                                                            name="supply" value="<%= launch.session.package  %> "
+                                                            name="supply" value="<%= launch.session.package%>"
                                                             placeholder="Supply">
                                                     </div>
                                                 </div>
@@ -782,8 +785,7 @@
                                                         Max</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="max" name="max"
-                                                            value="<%= launch.session.max  %> "
-                                                            placeholder="Max Supply">
+                                                            value="<%= launch.session.max%>" placeholder="Max Supply">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -792,8 +794,7 @@
                                                         Min</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="min" name="min"
-                                                            value="<%= launch.session.min  %> "
-                                                            placeholder="Min Supply">
+                                                            value="<%= launch.session.min%>" placeholder="Min Supply">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -802,7 +803,7 @@
                                                         Sell</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="sell" name="sell"
-                                                            value="<%= launch.session.sell  %> " placeholder="Sell">
+                                                            value="<%= launch.session.sell%>" placeholder="Sell">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -811,7 +812,7 @@
                                                         Price</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="price" name="price"
-                                                            value="<%= launch.session.price  %> " placeholder="Price">
+                                                            value="<%= launch.session.price%>" placeholder="Price">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -820,7 +821,31 @@
                                                         Bonus</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="bonus" name="bonus"
-                                                            value="<%= launch.session.bonus  %> " placeholder="Bonus">
+                                                            value="<%= launch.session.bonus%>" placeholder="Bonus">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="DateStart"
+                                                        class="col-sm-3 text-right control-label col-form-label">
+                                                        Date Start</label>
+                                                    <div class="col-sm-9">
+                                                        <div class='input-group mb-3'>
+                                                            <input type="text" class="form-control" name="start"
+                                                                placeholder="set start date" id="min-date"
+                                                                value="<%= new Date(launch.session.start)%>">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="DateEnd"
+                                                        class="col-sm-3 text-right control-label col-form-label">
+                                                        Date End</label>
+                                                    <div class="col-sm-9">
+                                                        <div class='input-group mb-3'>
+                                                            <input type="text" class="form-control" name="end"
+                                                                placeholder="set end date" id="max-date"
+                                                                <%= new Date(launch.session.end)%>>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -831,7 +856,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Website</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="website"
-                                                            name="website" value="<%= launch.link.website  %> "
+                                                            name="website" value="<%= launch.link.website%>"
                                                             placeholder="Website Here">
                                                     </div>
                                                 </div>
@@ -840,7 +865,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Telegram</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="telegram"
-                                                            name="telegram" value="<%= launch.link.telegram  %> "
+                                                            name="telegram" value="<%= launch.link.telegram%>"
                                                             placeholder="Telegram Here">
                                                     </div>
                                                 </div>
@@ -849,7 +874,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Twitter</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="twitter"
-                                                            name="twitter" value="<%= launch.link.twitter  %> "
+                                                            name="twitter" value="<%= launch.link.twitter%>"
                                                             placeholder="Twitter Here">
                                                     </div>
                                                 </div>
@@ -1257,11 +1282,24 @@
     <!-- <script src="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script> -->
     <!-- <script src="../../dist/js/pages/dashboards/dashboard2.js"></script> -->
     <script src="../../dist/js/pages/notes/notes.js"></script>
+    <!-- This Page JS -->
+    <script src="../assets/libs/moment/moment.js"></script>
+    <script src="../assets/libs/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker-custom.js">
+    </script>
     <script>
         var str = $('#intro').val()
         $('#intro').html($.trim(str))
         var str_note = $('#note').val()
         $('#note').html($.trim(str_note))
+        //date
+        $('#min-date').bootstrapMaterialDatePicker({
+            format: 'MM/DD/YYYY HH:mm:ss',
+            minDate: new Date()
+        });
+        $('#max-date').bootstrapMaterialDatePicker({
+            format: 'MM/DD/YYYY HH:mm:ss',
+            minDate: new Date()
+        });
     </script>
 </body>
 
