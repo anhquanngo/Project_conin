@@ -23,7 +23,6 @@ router.get("/launch", async function (req, res) {
 router.get("/launch/edit/:id", async function (req, res) {
     const { id } = req.params
     launchOne = await launch.get({ _id: id }, '')
-    console.log('launchOne', launchOne);
     res.render("Launch_Edit", { launch: launchOne[0] })
 })
 //Create

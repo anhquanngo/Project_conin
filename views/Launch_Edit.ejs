@@ -652,7 +652,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Symbol</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" name="symbol" class="form-control"
-                                                            id="symbol" value="<%= launch.symbol %> "
+                                                            id="symbol" value="<%=launch.symbol%>"
                                                             placeholder="Symbol Here">
                                                     </div>
                                                 </div>
@@ -714,7 +714,7 @@
                                                         Supply</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="totalsupply"
-                                                            name="total_supply" value="<%= launch.total_supply %> "
+                                                            name="total_supply" value="<%= launch.total_supply %>"
                                                             placeholder="Total Supply">
                                                     </div>
                                                 </div>
@@ -723,10 +723,17 @@
                                                         Status
                                                     </label>
                                                     <div class="col-sm-9">
+                                                        <% if(launch.status==true){ %>
                                                         <select class="form-control" id="status" name="status">
                                                             <option>Buy</option>
                                                             <option>Sell</option>
                                                         </select>
+                                                        <% }else{ %>
+                                                        <select class="form-control" id="status" name="status">
+                                                            <option>Sell</option>
+                                                            <option>Buy</option>
+                                                        </select>
+                                                        <% } %>
                                                     </div>
                                                 </div>
                                             </div>
@@ -737,10 +744,17 @@
                                                         Status
                                                     </label>
                                                     <div class="col-sm-9">
-                                                        <select class="form-control" id="statusS">
+                                                        <% if(launch.session.statusS==true){ %>
+                                                        <select class="form-control" id="status" name="statusS">
                                                             <option>Buy</option>
                                                             <option>Sell</option>
                                                         </select>
+                                                        <% }else{ %>
+                                                        <select class="form-control" id="status" name="statusS">
+                                                            <option>Sell</option>
+                                                            <option>Buy</option>
+                                                        </select>
+                                                        <% } %>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -864,50 +878,6 @@
                                                 <div class="form-group mb-0 text-right">
                                                     <button type="summit"
                                                         class="btn btn-info waves-effect waves-light">Save</button>
-                                                    <!-- <script>
-                                                        function updateLaunch() {
-                                                            $.ajax({
-                                                                url: '../api/launch/update/<%=launch._id  %>',
-                                                                type: 'PUT',
-                                                                contentType: "multipart/form-data",
-                                                                data: {
-                                                                    symbol: $('#symbol').val,
-                                                                    logo: $('#logo').val,
-                                                                    name: $('#name').val,
-                                                                    slogan: $('#slogan').val,
-                                                                    total_supply: $('#totalsupply').val,
-                                                                    status: $('#status').val,
-                                                                    session: {
-                                                                        status: $('#statusS').val,
-                                                                        supply: $('#supply').val,
-                                                                        max: $('#max').val,
-                                                                        min: $('#min').val,
-                                                                        sell: $('#sell').val,
-                                                                        price: $('#price').val,
-                                                                        bonus: $('#bonus').val,
-                                                                    },
-                                                                    link: {
-                                                                        website: $('#website').val,
-                                                                        telegram: $('#telegram').val,
-                                                                        twitter: $('#twitter').val,
-                                                                    },
-                                                                    intro: $('#intro').val,
-                                                                    note: $('#note').val,
-                                                                    whiteList: $('#whiteList').val,
-
-                                                                },
-                                                                success: function (
-                                                                    data) {
-                                                                    // location.reload();
-                                                                    alert('ok')
-                                                                },
-                                                                error: function (
-                                                                    e) {
-                                                                    alert(e)
-                                                                }
-                                                            });
-                                                        }
-                                                    </script> -->
                                                     <button type="button"
                                                         class="btn btn-dark waves-effect waves-light">Cancel</button>
                                                 </div>
@@ -1290,6 +1260,8 @@
     <script>
         var str = $('#intro').val()
         $('#intro').html($.trim(str))
+        var str_note = $('#note').val()
+        $('#note').html($.trim(str_note))
     </script>
 </body>
 

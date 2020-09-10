@@ -639,20 +639,21 @@
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title">Edit Launch</h4>
+                                            <h4 class="card-title">Add Launch</h4>
                                             <h6 class="card-subtitle">Form</h6>
                                         </div>
                                         <hr>
 
-                                        <form class="form-horizontal" enctype="application/x-www-form-urlencoded">
+                                        <form class="form-horizontal" enctype="multipart/form-data" method="POST"
+                                            action="/api/launch/add">
                                             <div class="card-body">
                                                 <h4 class="card-title">Infomation</h4>
                                                 <div class="form-group row">
                                                     <label for="symbol"
                                                         class="col-sm-3 text-right control-label col-form-label">Symbol</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="symbol" value=""
-                                                            placeholder="Symbol Here">
+                                                        <input type="text" class="form-control" id="symbol" required
+                                                            name="symbol" value="" placeholder="Symbol Here">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -665,7 +666,8 @@
                                                             </div>
                                                             <div class="custom-file">
                                                                 <input type="file" class="custom-file-input" id="logo"
-                                                                    id="inputGroupFile01" onchange="readURL(this);">
+                                                                    name="logo" id="inputGroupFile01" required
+                                                                    onchange="readURL(this);">
                                                                 <label class="custom-file-label"
                                                                     for="inputGroupFile01">Choose file</label>
 
@@ -693,7 +695,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Name</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="name" value=""
-                                                            placeholder="Name Here">
+                                                            required name="name" placeholder="Name Here">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -701,16 +703,17 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Slogan</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="slogan" value=""
-                                                            placeholder="Slogan Here">
+                                                            required name="slogan" placeholder="Slogan Here">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="totalSupply"
                                                         class="col-sm-3 text-right control-label col-form-label">Total
+                                                        required
                                                         Supply</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="totalsupply"
-                                                            value="" placeholder="Total Supply">
+                                                            name="total_supply" value="" placeholder="Total Supply">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -718,7 +721,8 @@
                                                         Status
                                                     </label>
                                                     <div class="col-sm-9">
-                                                        <select class="form-control" id="status">
+                                                        <select class="form-control" id="status" name="status"
+                                                            name="status">
                                                             <option>Buy</option>
                                                             <option>Sell</option>
                                                         </select>
@@ -732,7 +736,7 @@
                                                         Status
                                                     </label>
                                                     <div class="col-sm-9">
-                                                        <select class="form-control" id="statusS">
+                                                        <select class="form-control" id="statusS" name="statusS">
                                                             <option>Buy</option>
                                                             <option>Sell</option>
                                                         </select>
@@ -743,7 +747,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Package</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="package" value=""
-                                                            placeholder="Package">
+                                                            name="package" placeholder="Package">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -752,7 +756,7 @@
                                                         Supply</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="supply" value=""
-                                                            placeholder="Supply">
+                                                            name="supply" placeholder="Supply">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -761,7 +765,7 @@
                                                         Max</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="max" value=""
-                                                            placeholder="Max Supply">
+                                                            name="max" placeholder="Max Supply">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -770,7 +774,7 @@
                                                         Min</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="min" value=""
-                                                            placeholder="Min Supply">
+                                                            name="min" placeholder="Min Supply">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -779,7 +783,7 @@
                                                         Sell</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="sell" value=""
-                                                            placeholder="Sell">
+                                                            name="sell" placeholder="Sell">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -788,7 +792,7 @@
                                                         Price</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="price" value=""
-                                                            placeholder="Price">
+                                                            name="price" placeholder="Price">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -797,7 +801,7 @@
                                                         Bonus</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="bonus" value=""
-                                                            placeholder="Bonus">
+                                                            name="bonus" placeholder="Bonus">
                                                     </div>
                                                 </div>
                                             </div>
@@ -808,7 +812,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Website</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="website" value=""
-                                                            placeholder="Website Here">
+                                                            name="website" placeholder="Website Here">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -816,7 +820,7 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Telegram</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="telegram" value=""
-                                                            placeholder="Telegram Here">
+                                                            name="telegram" placeholder="Telegram Here">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -824,14 +828,14 @@
                                                         class="col-sm-3 text-right control-label col-form-label">Twitter</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="twitter" value=""
-                                                            placeholder="Twitter Here">
+                                                            name="twitter" placeholder="Twitter Here">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="intro"
                                                         class="col-sm-3 text-right control-label col-form-label">Intro</label>
                                                     <div class="col-sm-9">
-                                                        <textarea class="form-control">
+                                                        <textarea class="form-control" rows="5" name="intro">
                                                         </textarea>
                                                     </div>
                                                 </div>
@@ -839,7 +843,7 @@
                                                     <label for="note"
                                                         class="col-sm-3 text-right control-label col-form-label">Note</label>
                                                     <div class="col-sm-9">
-                                                        <textarea class="form-control" id="note" rows="5">
+                                                        <textarea class="form-control" id="note" rows="5" name="note">
 
                                                         </textarea>
                                                     </div>
@@ -848,51 +852,8 @@
                                             <hr>
                                             <div class="card-body">
                                                 <div class="form-group mb-0 text-right">
-                                                    <button type="summit" class="btn btn-info waves-effect waves-light"
-                                                        onclick="updateLaunch()">Save</button>
-                                                    <script>
-                                                        function updateLaunch() {
-                                                            $.ajax({
-                                                                url: '../../api/launch/update/',
-                                                                type: 'PUT',
-                                                                data: {
-                                                                    symbol: $('#symbol').val,
-                                                                    logo: $('#logo').val,
-                                                                    name: $('#name').val,
-                                                                    slogan: $('#slogan').val,
-                                                                    total_supply: $('#totalsupply').val,
-                                                                    status: $('#status').val,
-                                                                    session: {
-                                                                        status: $('#statusS').val,
-                                                                        supply: $('#supply').val,
-                                                                        max: $('#max').val,
-                                                                        min: $('#min').val,
-                                                                        sell: $('#sell').val,
-                                                                        price: $('#price').val,
-                                                                        bonus: $('#bonus').val,
-                                                                    },
-                                                                    link: {
-                                                                        website: $('#website').val,
-                                                                        telegram: $('#telegram').val,
-                                                                        twitter: $('#twitter').val,
-                                                                    },
-                                                                    intro: $('#intro').val,
-                                                                    note: $('#note').val,
-                                                                    whiteList: $('#whiteList').val,
-
-                                                                },
-                                                                success: function (
-                                                                    data) {
-                                                                    location.reload();
-                                                                    alert('ok')
-                                                                },
-                                                                error: function (
-                                                                    e) {
-                                                                    alert('loi')
-                                                                }
-                                                            });
-                                                        }
-                                                    </script>
+                                                    <button type="summit"
+                                                        class="btn btn-info waves-effect waves-light">Save</button>
                                                     <button type="button"
                                                         class="btn btn-dark waves-effect waves-light">Cancel</button>
                                                 </div>
@@ -1274,8 +1235,6 @@
     <script src="../../dist/js/pages/notes/notes.js"></script>
     <script>
         $('textarea').val('');
-        var ddd = '                                                            ';
-        alert(ddd.length);
     </script>
 </body>
 

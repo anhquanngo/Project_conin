@@ -61,7 +61,7 @@ var launch = new Launch();
 //         total_supply: total_supplyRandom,
 //         status: statusR,
 //         session: {
-//             status: statusS,
+//             statusS: statusS,
 //             package: packageS,
 //             supply: supplyS,
 //             max: maxS,

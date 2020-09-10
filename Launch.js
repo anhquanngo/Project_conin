@@ -26,7 +26,7 @@ const schemaLaunch = new Schema({
     total_supply: { type: Number, default: 0 },//info
     status: { type: Boolean, default: false },// danh cho submit admin
     session: {
-        status: { type: Boolean, default: false },
+        statusS: { type: Boolean, default: false },
         package: { type: Number, default: 0 },
         supply: { type: Number, default: 0 },
         max: { type: Number, default: 0 },
