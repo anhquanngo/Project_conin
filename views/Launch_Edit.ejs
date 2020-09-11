@@ -669,7 +669,7 @@
                                                             </div>
                                                             <div class="custom-file">
                                                                 <input type="file" class="custom-file-input" id="logo"
-                                                                    name="logo" id="inputGroupFile01"
+                                                                    name="logo" id="inputGroupFile01" required
                                                                     onchange="readURL(this);">
                                                                 <label class="custom-file-label"
                                                                     for="inputGroupFile01">Choose file</label>
@@ -748,12 +748,12 @@
                                                     </label>
                                                     <div class="col-sm-9">
                                                         <% if(launch.session.statusS==true){ %>
-                                                        <select class="form-control" id="status" name="statusS">
+                                                        <select class="form-control" id="statusS" name="statusS">
                                                             <option>Buy</option>
                                                             <option>Sell</option>
                                                         </select>
                                                         <% }else{ %>
-                                                        <select class="form-control" id="status" name="statusS">
+                                                        <select class="form-control" id="statusS" name="statusS">
                                                             <option>Sell</option>
                                                             <option>Buy</option>
                                                         </select>
@@ -812,7 +812,8 @@
                                                         Price</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" id="price" name="price"
-                                                            value="<%= launch.session.price%>" placeholder="Price">
+                                                            required value="<%= launch.session.price%>"
+                                                            placeholder="Price">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -831,8 +832,8 @@
                                                     <div class="col-sm-9">
                                                         <div class='input-group mb-3'>
                                                             <input type="text" class="form-control" name="start"
-                                                                placeholder="set start date" id="min-date"
-                                                                value="<%= new Date(launch.session.start)%>">
+                                                                placeholder="set start date" id="min-date" required
+                                                                value="<%= new Date(launch.session.start).toLocaleString()%>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -843,8 +844,8 @@
                                                     <div class="col-sm-9">
                                                         <div class='input-group mb-3'>
                                                             <input type="text" class="form-control" name="end"
-                                                                placeholder="set end date" id="max-date"
-                                                                <%= new Date(launch.session.end)%>>
+                                                                placeholder="set end date" id="max-date" required
+                                                                value="<%= new Date(launch.session.end).toLocaleString()%>">
                                                         </div>
                                                     </div>
                                                 </div>

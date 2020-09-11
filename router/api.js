@@ -29,7 +29,29 @@ const upload = multer({
 
 //API
 router.get("/launch", async (req, res) => {
-    res.json(await launch.get({}, ""))
+    const { page = 1, limit = 5 } = req.query;
+
+    try {
+        const launches = await launch.get({}, "")
+            .limit(limit * 1)
+            .skip((page - 1) * limit)
+            .exec()
+
+        // get total documents in the Posts collection 
+        const count = await launch.countDocuments();
+
+        // return response with posts, total pages, and current page
+        res.json({
+            launches,
+            totalPages: Math.ceil(count / limit),
+            currentPage: page
+        });
+
+    } catch (error) {
+        console.log(error);
+    }
+
+    // res.json(await launch.get({}, ""))
 });
 
 //post 1 launch
@@ -100,17 +122,19 @@ router.post("/launch/update/:id", upload.single('logo'), async (req, res) => {
     const updateLaunch = req.body
     const file = req.file
 
-    if (req.body.status == "Buy") {
+    if (updateLaunch.status == "Buy") {
         updateLaunch.status = true
-    } else {
+    }
+    if (updateLaunch.status == "Sell") {
         updateLaunch.status = false
+    }
+    if (updateLaunch.statusS == "Buy") {
+        updateLaunch.statusS = true
+    }
+    if (updateLaunch.statusS == "Sell") {
+        updateLaunch.statusS = false
     }
 
-    if (req.body.statusS == "Buy") {
-        updateLaunch.statusS = true
-    } else {
-        updateLaunch.status = false
-    }
     if (file) {
         updateLaunch.logo = file.filename
     }
