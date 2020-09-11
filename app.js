@@ -21,10 +21,14 @@ app.use("/uploads", express.static(path.join(__dirname, '/uploads')));
 //public file img
 app.use("/api", apiRouter)
 app.use("/", launchRouter)
-
 app.get("/", function (req, res) {
   res.render("Dashboard")
 })
+
+app.use("*", function (req, res) {
+  return res.render("errors/error-404");
+});
+
 
 
 app.listen(port, () => {

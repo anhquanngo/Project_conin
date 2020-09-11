@@ -2,6 +2,8 @@ var express = require('express')
 var router = express.Router()
 var multer = require('multer')
 const { launch } = require("../function");
+const mongoose = require("mongoose");
+const Launch = mongoose.model("Launch");
 
 const upload = multer({
     storage: multer.diskStorage({
@@ -16,8 +18,47 @@ const upload = multer({
 
 //Show
 router.get("/launch", async function (req, res) {
-    const allLaunch = await launch.get({}, "")
-    res.render("Launch", { allLaunch })
+    const page = parseInt(req.query.page || 1)
+    const limit = 3
+    const skip = (page - 1) * limit;
+    const totalDocuments = await Launch.find().countDocuments();
+    const totalPages = Math.ceil(totalDocuments / limit);
+    const range = []
+    const rangerForDot = [];
+    const detal = 1;
+    const left = page - detal;
+    const right = page + detal;
+    for (let i = 1; i <= totalPages; i++) {
+        if (i === 1 || i === totalPages || (i >= left && i <= right)) {
+            range.push(i);
+        }
+    }
+    let temp;
+
+    range.map((i) => {
+        if (temp) {
+            if (i - temp === 2) {
+                rangerForDot.push(i - 1);
+            } else if (i - temp !== 1) {
+                rangerForDot.push("...");
+            }
+        }
+        temp = i;
+        rangerForDot.push(i);
+    });
+
+    const allLaunch = await Launch.find()
+        .limit(limit)
+        .skip(skip);
+
+
+    // const allLaunch = await launch.get({}, "")
+    res.render("Launch", {
+        allLaunch,
+        range: rangerForDot,
+        page,
+        totalPages
+    })
 })
 //Update
 router.get("/launch/edit/:id", async function (req, res) {
@@ -29,13 +70,19 @@ router.get("/launch/edit/:id", async function (req, res) {
 router.get("/launch/create", async function (req, res) {
     res.render("Launch_Create")
 })
-
-router.post("/launch/update/:id", upload.single('logo'), async function (req, res) {
-    const { id } = req.params
-    const { data } = req.body
-
-    console.log("text", req.file);
-    res.send('ok')
+router.get("/404", async function (req, res) {
+    res.render("errors/error-404")
 })
-
+router.get("/500", async function (req, res) {
+    res.render("errors/error-500")
+})
+router.get("/403", async function (req, res) {
+    res.render("errors/error-403")
+})
+router.get("/400", async function (req, res) {
+    res.render("errors/error-400")
+})
+router.get("/505", async function (req, res) {
+    res.render("errors/error-503")
+})
 module.exports = router

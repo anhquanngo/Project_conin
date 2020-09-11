@@ -905,7 +905,8 @@
                                                     <button type="summit"
                                                         class="btn btn-info waves-effect waves-light">Save</button>
                                                     <button type="button"
-                                                        class="btn btn-dark waves-effect waves-light">Cancel</button>
+                                                        class="btn btn-dark waves-effect waves-light"><a
+                                                            href="/launch">Cancel</a></button>
                                                 </div>
                                             </div>
                                         </form>
@@ -1294,11 +1295,11 @@
         $('#note').html($.trim(str_note))
         //date
         $('#min-date').bootstrapMaterialDatePicker({
-            format: 'MM/DD/YYYY HH:mm:ss',
+            format: 'YYYY/MM/DD HH:mm:ss',
             minDate: new Date()
         });
         $('#max-date').bootstrapMaterialDatePicker({
-            format: 'MM/DD/YYYY HH:mm:ss',
+            format: 'YYYY/MM/DD HH:mm:ss',
             minDate: new Date()
         });
     </script>
