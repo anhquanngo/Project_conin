@@ -20,12 +20,16 @@ const upload = multer({
                     }
                 })
             } catch (error) {
-                console.log(error);
+                alert(error)
             }
             cb(null, req.body.symbol + "-" + file.originalname);
         },
     }),
+    limits: {
+        fileSize: 1024 * 1024 * 0.5,
+    },
 });
+
 
 //API
 router.get("/launch", apiAll);

@@ -10,6 +10,10 @@ const upload = multer({
         destination: function (req, file, cb) {
             cb(null, "./uploads");
         },
+        limits: function (req, file, cb) {
+            file.fieldSize
+            console.log("fieldSize", fieldSize)
+        },
         filename: function (req, file, cb) {
             cb(null, Date.now() + "-" + file.originalname);
         },
