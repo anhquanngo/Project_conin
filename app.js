@@ -5,12 +5,16 @@ const app = express();
 const port = 3000;
 var bodyParser = require('body-parser')
 const Joi = require("joi")
+require("./User/user")
+require("./User/function")
+
+
 
 const apiRouter = require("./router/api")
 const launchRouter = require("./router/launch");
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // parse application/json
 app.use(bodyParser.json())

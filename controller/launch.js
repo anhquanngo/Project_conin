@@ -1,4 +1,4 @@
-const { launch } = require("../function.js");
+const { launch } = require("../Launch/function.js");
 const mongoose = require("mongoose");
 const Launch = mongoose.model("Launch");
 

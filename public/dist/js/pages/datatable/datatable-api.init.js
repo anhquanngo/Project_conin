@@ -11,7 +11,7 @@
 var t = $('#t_add_row').DataTable();
 var counter = 1;
 
-$('#addRow').on('click', function() {
+$('#addRow').on('click', function () {
     t.row.add([
         counter + '.1',
         counter + '.2',
@@ -31,12 +31,12 @@ $('#addRow').click();
 //==================================================//
 
 $('.datatable-select-inputs').DataTable({
-    initComplete: function() {
-        this.api().columns().every(function() {
+    initComplete: function () {
+        this.api().columns().every(function () {
             var column = this;
             var select = $('<select><option value="">Select option</option></select>')
                 .appendTo($(column.footer()).empty())
-                .on('change', function() {
+                .on('change', function () {
                     var val = $.fn.dataTable.util.escapeRegex(
                         $(this).val()
                     );
@@ -46,7 +46,7 @@ $('.datatable-select-inputs').DataTable({
                         .draw();
                 });
 
-            column.data().unique().sort().each(function(d, j) {
+            column.data().unique().sort().each(function (d, j) {
                 select.append('<option value="' + d + '">' + d + '</option>');
             });
         });
@@ -57,19 +57,40 @@ $('.datatable-select-inputs').DataTable({
 // Individual column searching (text inputs)        //
 //==================================================//
 // Setup - add a text input to each footer cell
-$('.text-inputs-searching tfoot th').each(function() {
+
+
+
+$('.text-inputs-searching tfoot th').each(function () {
     var title = $(this).text();
     $(this).html('<input type="text" placeholder="Search ' + title + '" />');
 });
 
 // DataTable
-var tableSearching = $('.text-inputs-searching').DataTable();
+var tableSearching = $('.text-inputs-searching').DataTable({
+    processing: true,
+    serverSide: true,
+    "ajax": {
+        "url": "/table",
+        "type": "POST"
+    },
+    columns: [
+        { data: "userId" },
+        { data: "role" },
+        { data: "identity.fName" },
+        { data: "identity.lName" },
+
+        { data: "mail.email" },
+        { data: "identity.phone" },
+        { data: "identity.city" },
+        { data: "identity.country" },
+    ],
+});
 
 // Apply the search
-tableSearching.columns().every(function() {
+tableSearching.columns().every(function () {
     var that = this;
 
-    $('input', this.footer()).on('keyup change', function() {
+    $('input', this.footer()).on('keyup change', function () {
         if (that.search() !== this.value) {
             that
                 .search(this.value)
@@ -108,15 +129,15 @@ function format(d) {
 var tableChildRows = $('.show-child-rows').DataTable({
     "ajax": "../../dist/js/pages/datatable/data.json",
     "columns": [{
-            "className": 'details-control',
-            "orderable": false,
-            "data": null,
-            "defaultContent": ''
-        },
-        { "data": "name" },
-        { "data": "position" },
-        { "data": "office" },
-        { "data": "salary" }
+        "className": 'details-control',
+        "orderable": false,
+        "data": null,
+        "defaultContent": ''
+    },
+    { "data": "name" },
+    { "data": "position" },
+    { "data": "office" },
+    { "data": "salary" }
     ],
     "order": [
         [1, 'asc']
@@ -126,7 +147,7 @@ var tableChildRows = $('.show-child-rows').DataTable({
 //=============================================//
 // Add event listener for opening and closing details
 //=============================================//
-$('.show-child-rows tbody').on('click', 'td.details-control', function() {
+$('.show-child-rows tbody').on('click', 'td.details-control', function () {
     var tr = $(this).closest('tr');
     var row = tableChildRows.row(tr);
 
@@ -147,11 +168,11 @@ $('.show-child-rows tbody').on('click', 'td.details-control', function() {
 //==================================================//
 var table1 = $('#row_select').DataTable();
 
-$('#row_select tbody').on('click', 'tr', function() {
+$('#row_select tbody').on('click', 'tr', function () {
     $(this).toggleClass('selected');
 });
 
-$('#button').click(function() {
+$('#button').click(function () {
     alert(table1.rows('.selected').data().length + ' row(s) selected');
 });
 
@@ -161,7 +182,7 @@ $('#button').click(function() {
 
 var table2 = $('#form_inputs').DataTable();
 
-$('.inputs-submit').click(function() {
+$('.inputs-submit').click(function () {
     var data = table2.$('input, select').serialize();
     alert(
         "The following data would have been submitted to the server: \n\n" +
@@ -175,7 +196,7 @@ $('.inputs-submit').click(function() {
 //==================================================//
 var table3 = $('#sing_row_del').DataTable();
 
-$('#sing_row_del tbody').on('click', 'tr', function() {
+$('#sing_row_del tbody').on('click', 'tr', function () {
     if ($(this).hasClass('selected')) {
         $(this).removeClass('selected');
     } else {
@@ -184,6 +205,6 @@ $('#sing_row_del tbody').on('click', 'tr', function() {
     }
 });
 
-$('#delete-row').click(function() {
+$('#delete-row').click(function () {
     table3.row('.selected').remove().draw(false);
 });
