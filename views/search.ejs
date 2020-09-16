@@ -113,7 +113,6 @@
                                     </form>
                                     <table data-toggle="table" data-height="578" data-mobile-responsive="true"
                                         class="table-striped">
-
                                         <thead>
                                             <tr>
                                                 <th>User Id</th>
@@ -149,7 +148,7 @@
                                         <ul class="pagination justify-content-center">
                                             <% if (page > 1) { %>
                                             <li class="page-item">
-                                                <a class="page-link" href="/user/?page=<%= page - 1 %>"
+                                                <a class="page-link" href="/search?q=<%= q %>&page=<%= page - 1 %>"
                                                     aria-label="Previous">
                                                     <span aria-hidden="true">&laquo;</span>
                                                     <span class="sr-only">Previous</span>
@@ -161,13 +160,15 @@
                                             <% if (i === "...") { %>
                                             <span> <%= i %> </span>
                                             <% } else { %>
-                                            <a class="page-link" href="/user/?page=<%= i %>"><%= i %></a>
+                                            <a class="page-link" href="/search?q=<%= q %>&page=<%= i %>"><%= i %></a>
                                             <% } %>
                                             </li>
                                             <% }) %>
                                             <% if (page < totalPages) { %>
                                             <li class="page-item ">
-                                                <a class="page-link" href="/user/?page=<%= page + 1 %>"> Next </a>
+                                                <a class="page-link" href="/search?q=<%= q %>&page=<%= page + 1 %>">
+                                                    Next
+                                                </a>
                                             </li>
                                             <% } %>
                                         </ul>

@@ -29,9 +29,9 @@ app.get("/", function (req, res) {
   res.render("Dashboard")
 })
 
-app.use("*", function (req, res) {
-  return res.render("errors/error-404");
-});
+// app.use("*", function (req, res) {
+//   return res.render("errors/error-404");
+// });
 
 
 

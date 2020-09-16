@@ -32,10 +32,10 @@ class User {
 
 var user = new User();
 
-var faker = require('faker');
+// var faker = require('faker');
 
 // const fakerData = async () => {
-//     for (i = 0; i < 100; i++) {
+//     for (i = 0; i < 1000000; i++) {
 //         var randomID = faker.random.number();
 //         var randomHash_pass = faker.internet.password();
 //         var randomSymbol = faker.finance.currencySymbol();

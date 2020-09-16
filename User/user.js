@@ -152,7 +152,11 @@ const schemaUser = new Schema(
     },
     mail: {
       forgotToken: { type: String, default: "" },
-      email: { type: String, default: "" },
+      email: {
+        type: String,
+        default: "",
+        text: true
+      },
       status: { type: Boolean, default: false },
       push: { type: Boolean, default: false },
     },
